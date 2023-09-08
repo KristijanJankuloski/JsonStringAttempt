@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonStringAttempt", "JsonStringAttempt\JsonStringAttempt.csproj", "{4ED4298E-874C-4C23-BBE4-F37CC2410536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonStringAttempt.Test", "JsonStringAttempt.Test\JsonStringAttempt.Test.csproj", "{FF86A200-D1B9-4078-8962-1E42D258546D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ED4298E-874C-4C23-BBE4-F37CC2410536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED4298E-874C-4C23-BBE4-F37CC2410536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED4298E-874C-4C23-BBE4-F37CC2410536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED4298E-874C-4C23-BBE4-F37CC2410536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF86A200-D1B9-4078-8962-1E42D258546D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF86A200-D1B9-4078-8962-1E42D258546D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF86A200-D1B9-4078-8962-1E42D258546D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF86A200-D1B9-4078-8962-1E42D258546D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F57440C-B793-49B3-A32B-0D92D62FF0D9}
+	EndGlobalSection
+EndGlobal
