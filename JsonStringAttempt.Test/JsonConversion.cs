@@ -221,6 +221,12 @@
         {
             Assert.ThrowsException<FormatException>(() => JsonConverter.Deserialize<Product>("\"Id\":1,\"Name\":\"Test\",\"Description\":\"Test\",\"Price\":1"));
         }
+
+        [TestMethod]
+        public void JsonConverter_DeserializePackedObject_True()
+        {
+
+        }
     }
 
 

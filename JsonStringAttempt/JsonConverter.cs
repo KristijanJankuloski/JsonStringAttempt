@@ -142,11 +142,11 @@ namespace JsonStringAttempt
             return result;
         }
 
-        public static void MapToObject<T>(Dictionary<string, object> data, ref T target) where T : class
+        public static void MapToObject<T>(Dictionary<string, object> data, ref T target, Type type) where T : class
         {
             foreach (var pair in data)
             {
-                PropertyInfo property = typeof(T).GetProperties().FirstOrDefault(x => x.Name.ToLower() == pair.Key.ToLower());
+                PropertyInfo property = type.GetProperties().FirstOrDefault(x => x.Name.ToLower() == pair.Key.ToLower());
                 if (property != null && property.CanWrite)
                 {
                     if (pair.Value is Dictionary<string, object>)
@@ -154,10 +154,8 @@ namespace JsonStringAttempt
                         var nestedDict = pair.Value as Dictionary<string, object>;
                         if (nestedDict != null)
                         {
-                            //  CANNOT MAP TO DYNAMIC OR OBJECT
-                            //  when the recursive call is made it is made to an object and it does not have properties eventhough it is initialized
                             dynamic nestedObject = Activator.CreateInstance(property.PropertyType);
-                            MapToObject<dynamic>(nestedDict, ref nestedObject);
+                            MapToObject<dynamic>(nestedDict, ref nestedObject, property.PropertyType);
                             property.SetValue(target, nestedObject);
                         }
                     }
@@ -173,7 +171,7 @@ namespace JsonStringAttempt
 
         public static T Deserialize<T>(string input) where T : class, new()
         {
-            if (typeof(T) == typeof(IEnumerable))
+            if (typeof(T) == typeof(List<object>))
             {
                 T listResult = new();
                 List<object> dataList = ListDeserialize(input);
@@ -182,7 +180,7 @@ namespace JsonStringAttempt
 
             T result = new();
             Dictionary<string, object> map = DictionaryDeserialize(input);
-            MapToObject<T>(map, ref result);
+            MapToObject<T>(map, ref result, typeof(T));
             return result;
         }
 
